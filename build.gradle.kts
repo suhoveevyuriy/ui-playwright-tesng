@@ -10,11 +10,11 @@ repositories {
 }
 
 dependencies {
-    testImplementation(platform("org.junit:junit-bom:6.0.0"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    // Source: https://mvnrepository.com/artifact/org.testng/testng
+    testImplementation("org.testng:testng:7.12.0")
+    testImplementation("com.microsoft.playwright:playwright:1.62.0")
 }
 
 tasks.test {
-    useJUnitPlatform()
+    useTestNG()
 }
