@@ -1,16 +1,26 @@
-package org.steps;
+package org.pageSteps;
 
-import com.microsoft.playwright.Page;
-import org.page.HomePage;
 import org.page.LoginPage;
 
-public class LoginPageSteps extends LoginPage {
+public class LoginPageSteps {
 
-    public final LoginPage = new LoginPage;
-    public LoginPageSteps(Page page) {
-        super(page);
+    private final LoginPage loginPage;
 
+    public LoginPageSteps(LoginPage loginPage) {
+        this.loginPage = loginPage;
+    }
 
+    public void login(String email, String password) {
+        loginPage.enterEmail(email);
+        loginPage.enterPassword(password);
+        loginPage.clickLoginButton();
+    }
 
+    public boolean isLoginErrorDisplayed() {
+        return loginPage.isValidationMessageVisible();
+    }
+
+    public String getLoginErrorMessage() {
+        return loginPage.getValidationMessage();
     }
 }
