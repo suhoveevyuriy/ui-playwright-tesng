@@ -10,7 +10,7 @@ import org.page.LoginPage;
 import org.page.RegisterPage;
 import org.steps.HomePageSteps;
 import org.steps.LoginPageSteps;
-import org.pageSteps.RegisterPageSteps;
+import org.steps.RegisterPageSteps;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 

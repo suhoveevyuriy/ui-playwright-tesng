@@ -9,8 +9,8 @@ import org.testng.annotations.Test;
 public class LoginTest extends BaseTest {
 
     @Test
-    public void successfulLogin() {
-
+    public void verifyLogin() {
+        page.navigate("https://demowebshop.tricentis.com/");
         LoginPage loginPage = new LoginPage(page);
         LoginPageSteps loginSteps = new LoginPageSteps(loginPage);
 
@@ -20,8 +20,8 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    public void invalidLogin() {
-
+    public void verifyInvalidLogin() {
+        page.navigate("https://demowebshop.tricentis.com/");
         LoginPage loginPage = new LoginPage(page);
         LoginPageSteps loginSteps = new LoginPageSteps(loginPage);
 
