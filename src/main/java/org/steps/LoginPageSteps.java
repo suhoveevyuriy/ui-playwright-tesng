@@ -1,4 +1,4 @@
-package org.pageSteps;
+package org.steps;
 
 import org.page.LoginPage;
 
