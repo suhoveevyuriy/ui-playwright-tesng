@@ -20,7 +20,7 @@ public class LogoutTest extends BaseTest {
         HomePageSteps homePageSteps = new HomePageSteps(homePage);
 
         loginPageSteps.login(
-                "suhoveev07@sharkscode.com",
+                "suhoveev07@gmail.com",
                 "Test123@"
         );
 

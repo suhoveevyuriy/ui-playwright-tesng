@@ -7,7 +7,6 @@ import org.testng.annotations.Test;
 
 public class SuccessfulRegistration extends BaseTest {
 
-    private RegisterPageSteps registerPageSteps;
 
     @Test
     public void verifyRegistration() {
@@ -15,6 +14,7 @@ public class SuccessfulRegistration extends BaseTest {
         page.navigate("https://demowebshop.tricentis.com/register");
 
         registerPage.clickRegisterButton();
+        RegisterPageSteps registerPageSteps =new RegisterPageSteps(registerPage);
 
         String email = "test" + System.currentTimeMillis() + "@gmail.com";
 
@@ -25,7 +25,7 @@ public class SuccessfulRegistration extends BaseTest {
                 "Test123@"
         );
 
-        String actualResult = page.locator(".result").textContent();
+        String actualResult = page.locator(".result").textContent().trim();
 
         Assert.assertEquals(
                 actualResult,

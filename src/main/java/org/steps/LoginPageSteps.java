@@ -11,6 +11,7 @@ public class LoginPageSteps {
     }
 
     public void login(String email, String password) {
+        loginPage.clickLoginButton();
         loginPage.enterEmail(email);
         loginPage.enterPassword(password);
         loginPage.clickSubmitLogin();
@@ -18,9 +19,5 @@ public class LoginPageSteps {
 
     public boolean isLoginErrorDisplayed() {
         return loginPage.isValidationMessageVisible();
-    }
-
-    public String getLoginErrorMessage() {
-        return loginPage.getValidationMessage();
     }
 }
