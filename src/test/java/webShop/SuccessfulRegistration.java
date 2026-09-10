@@ -14,6 +14,8 @@ public class SuccessfulRegistration extends BaseTest {
 
         page.navigate("https://demowebshop.tricentis.com/register");
 
+        registerPage.clickRegisterButton();
+
         String email = "test" + System.currentTimeMillis() + "@gmail.com";
 
         registerPageSteps.registerMaleUser(

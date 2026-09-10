@@ -17,7 +17,7 @@ public class LoginPage {
 
         emailInput = page.locator("#Email");
         passwordInput = page.locator("#Password");
-        loginButton = page.locator("input.login-button");
+        loginButton = page.locator(".ico-login");
         validationMessage = page.locator(".validation-summary-errors");
     }
 

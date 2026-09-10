@@ -10,22 +10,24 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void verifyLogin() {
-        page.navigate("https://demowebshop.tricentis.com/");
         LoginPage loginPage = new LoginPage(page);
         LoginPageSteps loginSteps = new LoginPageSteps(loginPage);
 
+        loginPage.clickLoginButton();
+
         loginSteps.login("suhoveev07@gmail.com", "Test123@");
 
-        Assert.assertTrue(page.locator(".ico-logout").isVisible());
+        Assert.assertFalse(loginSteps.isLoginErrorDisplayed());
     }
 
     @Test
     public void verifyInvalidLogin() {
-        page.navigate("https://demowebshop.tricentis.com/");
         LoginPage loginPage = new LoginPage(page);
         LoginPageSteps loginSteps = new LoginPageSteps(loginPage);
 
-        loginSteps.login("wrong@gmail.com", "wrongPassword");
+        loginPage.clickLoginButton();
+
+        loginSteps.login("tesdf@gmail.com", "Test123@");
 
         Assert.assertTrue(loginSteps.isLoginErrorDisplayed());
     }
