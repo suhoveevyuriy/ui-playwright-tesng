@@ -21,7 +21,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    public void verifyInvalidLogin() {
+    public void verifyInvalidLogin() throws InterruptedException {
         LoginPage loginPage = new LoginPage(page);
         LoginPageSteps loginSteps = new LoginPageSteps(loginPage);
 
@@ -29,6 +29,6 @@ public class LoginTest extends BaseTest {
 
         loginSteps.login("tesdf@gmail.com", "Test123@");
 
-        Assert.assertTrue(loginSteps.isLoginErrorDisplayed());
+        Assert.assertTrue(loginPage.isValidationMessageVisible());
     }
 }

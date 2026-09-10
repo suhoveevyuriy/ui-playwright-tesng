@@ -13,7 +13,7 @@ public class LoginPageSteps {
     public void login(String email, String password) {
         loginPage.enterEmail(email);
         loginPage.enterPassword(password);
-        loginPage.clickLoginButton();
+        loginPage.clickSubmitLogin();
     }
 
     public boolean isLoginErrorDisplayed() {

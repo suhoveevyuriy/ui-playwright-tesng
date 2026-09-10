@@ -11,6 +11,7 @@ public class LoginPage {
     private final Locator passwordInput;
     private final Locator loginButton;
     private final Locator validationMessage;
+    private final Locator submitLogin;
 
     public LoginPage(Page page) {
         this.page = page;
@@ -19,6 +20,7 @@ public class LoginPage {
         passwordInput = page.locator("#Password");
         loginButton = page.locator(".ico-login");
         validationMessage = page.locator(".validation-summary-errors");
+        submitLogin =page.locator(".login-button");
     }
 
     public void enterEmail(String email) {
@@ -39,5 +41,8 @@ public class LoginPage {
 
     public boolean isValidationMessageVisible() {
         return validationMessage.isVisible();
+    }
+    public void clickSubmitLogin () {
+        submitLogin.click();
     }
 }
