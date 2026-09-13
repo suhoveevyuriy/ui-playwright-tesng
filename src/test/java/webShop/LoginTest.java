@@ -10,7 +10,6 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void verifyLogin() {
-        LoginPage loginPage = new LoginPage(page);
         LoginPageSteps loginSteps = new LoginPageSteps(loginPage);
 
         loginPage.clickLoginButton();
