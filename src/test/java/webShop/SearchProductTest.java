@@ -1,17 +1,19 @@
 package webShop;
 
 import base.BaseTest;
-import org.page.HomePage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.steps.HomePageSteps;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class SearchProductTest extends BaseTest {
 
+    private static final Logger logger =
+            LogManager.getLogger(SearchProductTest.class);
+
     @Test
     public void verifySearchProduct() {
-
-        HomePage homePage = new HomePage(page);
         HomePageSteps homePageSteps = new HomePageSteps(homePage);
 
         homePageSteps.searchProduct("Camcorder");
