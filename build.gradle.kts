@@ -18,6 +18,9 @@ dependencies {
     implementation("org.apache.logging.log4j:log4j-core:2.26.1")
 
 
+    testImplementation("io.qameta.allure:allure-testng:2.35.5")
+
+
 }
 
 tasks.test {
