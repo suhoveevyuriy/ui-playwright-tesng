@@ -15,6 +15,9 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void verifyLogin() {
+
+        logger.info("Login test started");
+
         LoginPageSteps loginSteps = new LoginPageSteps(loginPage);
 
         loginPage.clickLoginButton();
@@ -26,7 +29,10 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void verifyInvalidLogin() throws InterruptedException {
-        LoginPage loginPage = new LoginPage(page);
+
+        logger.info("Invalid login test started");
+
+
         LoginPageSteps loginSteps = new LoginPageSteps(loginPage);
 
         loginPage.clickLoginButton();

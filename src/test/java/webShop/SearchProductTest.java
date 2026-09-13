@@ -14,6 +14,8 @@ public class SearchProductTest extends BaseTest {
 
     @Test
     public void verifySearchProduct() {
+
+        logger.info("Search Product test started");
         HomePageSteps homePageSteps = new HomePageSteps(homePage);
 
         homePageSteps.searchProduct("Camcorder");

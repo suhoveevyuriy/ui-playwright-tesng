@@ -15,6 +15,8 @@ public class SuccessfulRegistration extends BaseTest {
     @Test
     public void verifyRegistration() {
 
+        logger.info("Successful registration test started");
+
         page.navigate("https://demowebshop.tricentis.com/register");
 
         registerPage.clickRegisterButton();

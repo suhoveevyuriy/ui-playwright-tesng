@@ -14,6 +14,8 @@ public class LogoutTest extends BaseTest {
     @Test
     public void logoutTest() {
 
+        logger.info("Logout test started");
+
         loginPageSteps.login(
                 "suhoveev07@gmail.com",
                 "Test123@"
