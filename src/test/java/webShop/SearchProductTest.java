@@ -23,5 +23,7 @@ public class SearchProductTest extends BaseTest {
         Assert.assertTrue(
                 page.locator(".product-title").first().isVisible()
         );
+
+        logger.info("Search Product test finished");
     }
 }

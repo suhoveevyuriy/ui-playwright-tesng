@@ -26,5 +26,6 @@ public class LogoutTest extends BaseTest {
         Assert.assertTrue(
                 page.locator(".ico-login").isVisible()
         );
+        logger.info("Logout test finished");
     }
 }

@@ -39,5 +39,6 @@ public class LoginTest extends BaseTest {
         loginSteps.login("tesdf@gmail.com", "Test123@");
 
         Assert.assertTrue(loginPage.isValidationMessageVisible());
+        logger.info("Invalid login finished");
     }
 }

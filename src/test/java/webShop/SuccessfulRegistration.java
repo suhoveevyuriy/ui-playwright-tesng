@@ -37,5 +37,6 @@ public class SuccessfulRegistration extends BaseTest {
                 actualResult,
                 "Your registration completed"
         );
+        logger.info("Successful registration test finished");
     }
 }

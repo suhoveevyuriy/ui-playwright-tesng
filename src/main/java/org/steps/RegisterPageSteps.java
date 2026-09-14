@@ -16,6 +16,8 @@ public class RegisterPageSteps {
             String email,
             String password
     ) {
+
+////// треба розібратись так як в RegisterPage вказав return this але не можу вказувати методи просто через крапку
         registerPage.selectMaleGender();
         registerPage.enterFirstName(firstName);
         registerPage.enterLastName(lastName);

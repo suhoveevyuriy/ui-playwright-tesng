@@ -8,7 +8,6 @@ public class RegisterPage extends BasePage {
 
     private final Locator registerLink;
     private final Locator maleRadioButton;
-    private final Locator femaleRadioButton;
     private final Locator firstNameInput;
     private final Locator lastNameInput;
     private final Locator emailInput;
@@ -22,7 +21,6 @@ public class RegisterPage extends BasePage {
         registerLink = page.locator(".ico-register");
 
         maleRadioButton = page.locator("#gender-male");
-        femaleRadioButton = page.locator("#gender-female");
 
         firstNameInput = page.locator("#FirstName");
         lastNameInput = page.locator("#LastName");
@@ -35,31 +33,38 @@ public class RegisterPage extends BasePage {
 
     }
 
-    public void selectMaleGender() {
+    public HomePage selectMaleGender() {
         maleRadioButton.check();
+        return this.selectMaleGender();
     }
 
-    public void enterFirstName(String firstName) {
+    public RegisterPage enterFirstName(String firstName) {
         firstNameInput.fill(firstName);
+        return this;
     }
 
-    public void enterLastName(String lastName) {
+    public RegisterPage enterLastName(String lastName) {
         lastNameInput.fill(lastName);
+        return this;
     }
 
-    public void enterEmail(String email) {
+    public RegisterPage enterEmail(String email) {
         emailInput.fill(email);
+        return this;
     }
 
-    public void enterPassword(String password) {
+    public RegisterPage enterPassword(String password) {
         passwordInput.fill(password);
+        return this;
     }
 
-    public void enterConfirmPassword(String password) {
+    public RegisterPage enterConfirmPassword(String password) {
         confirmPasswordInput.fill(password);
+        return this;
     }
 
-    public void clickRegisterButton() {
+    public RegisterPage clickRegisterButton() {
         registerButton.click();
+        return this;
     }
 }

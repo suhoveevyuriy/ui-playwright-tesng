@@ -39,7 +39,8 @@ public class HomePage extends BasePage {
         return this;
     }
 
-    public void openHomePage() {
+    public HomePage openHomePage() {
         homeButton.click();
+        return this;
     }
 }

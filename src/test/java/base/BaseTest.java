@@ -14,6 +14,12 @@ import org.steps.RegisterPageSteps;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
+import org.testng.ITestResult;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.UUID;
+
 public class BaseTest {
 
     protected Playwright playwright;
@@ -54,11 +60,37 @@ public class BaseTest {
         registerPageSteps = new RegisterPageSteps(registerPage);
     }
 
-    @AfterMethod
-    public void tearDown() {
+    @AfterMethod (alwaysRun = true)
+    public void tearDown(ITestResult result) {
+        try {
+            if (result.getStatus() == ITestResult.FAILURE
+                    && page != null
+                    && !page.isClosed()) {
 
-        context.close();
-        browser.close();
-        playwright.close();
+                Path directory = Paths.get("build", "screenshots");
+                Files.createDirectories(directory);
+
+                String fileName = result.getMethod().getMethodName()
+                        + "_" + UUID.randomUUID() + ".png";
+
+                Path screenshotPath = directory.resolve(fileName);
+
+                page.screenshot(new Page.ScreenshotOptions()
+                        .setPath(screenshotPath)
+                        .setFullPage(true));
+
+                System.out.println(
+                        "Screenshot: " + screenshotPath.toAbsolutePath()
+                );
+            }
+        } catch (Exception e) {
+            System.err.println(
+                    "Failed to take a screenshot: " + e.getMessage()
+            );
+        } finally {
+            context.close();
+            browser.close();
+            playwright.close();
+        }
     }
 }

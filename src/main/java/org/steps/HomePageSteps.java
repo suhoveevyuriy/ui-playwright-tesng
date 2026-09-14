@@ -11,9 +11,10 @@ public class HomePageSteps {
     }
 
     public void searchProduct(String productName) {
+        homePage
+                .enterSearchText(productName)
+                .clickSearchButton();
 
-        homePage.enterSearchText(productName);
-        homePage.clickSearchButton();
     }
 
     public void logout() {
