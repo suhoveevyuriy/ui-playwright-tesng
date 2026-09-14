@@ -19,10 +19,6 @@ import org.testng.ITestResult;
 import org.utils.ConfigManager;
 
 import java.io.ByteArrayInputStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.UUID;
 
 public class BaseTest {
 

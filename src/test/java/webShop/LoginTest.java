@@ -3,7 +3,7 @@ package webShop;
 import base.BaseTest;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.page.LoginPage;
+import org.page.BasePage;
 import org.steps.LoginPageSteps;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
@@ -46,7 +46,7 @@ public class LoginTest extends BaseTest {
     @DataProvider
     public Object[][] loginUsers() {
         return new Object[][]{
-                {"suhoy12@gmail.com", "Test123@"},
+                {"suho43434@gmail.com", "Test123@"},
                 {"suhoy07@gmail.com", "Test123@"}
         };
     }
