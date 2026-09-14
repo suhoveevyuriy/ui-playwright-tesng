@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import org.page.LoginPage;
 import org.steps.LoginPageSteps;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class LoginTest extends BaseTest {
@@ -13,15 +14,15 @@ public class LoginTest extends BaseTest {
     private static final Logger logger =
             LogManager.getLogger(LoginTest.class);
 
-    @Test
-    public void verifyLogin() {
+    @Test (dataProvider = "loginUsers")
+    public void verifyLogin(String email, String password) {
 
         logger.info("Login test started");
 
 
         loginPage.clickLoginButton();
 
-        loginPageSteps.login("suhoveev07@gmail.com", "Test123@");
+        loginPageSteps.login(email,password);
 
         Assert.assertFalse( loginPageSteps.isLoginErrorDisplayed());
     }
@@ -40,5 +41,13 @@ public class LoginTest extends BaseTest {
 
         Assert.assertTrue(loginPage.isValidationMessageVisible());
         logger.info("Invalid login finished");
+    }
+
+    @DataProvider
+    public Object[][] loginUsers() {
+        return new Object[][]{
+                {"suhoy12@gmail.com", "Test123@"},
+                {"suhoy07@gmail.com", "Test123@"}
+        };
     }
 }
