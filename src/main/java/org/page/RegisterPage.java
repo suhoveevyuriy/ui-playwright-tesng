@@ -35,7 +35,7 @@ public class RegisterPage extends BasePage {
 
     public RegisterPage selectMaleGender() {
         maleRadioButton.check();
-        return this.selectMaleGender();
+        return this;
     }
 
     public RegisterPage enterFirstName(String firstName) {
