@@ -21,7 +21,7 @@ public class LoginTest extends BaseTest {
 
         loginPage.clickLoginButton();
 
-        loginPageSteps.login("suhoveeолv07@gmail.com", "Test123@");
+        loginPageSteps.login("suhoveev07@gmail.com", "Test123@");
 
         Assert.assertFalse( loginPageSteps.isLoginErrorDisplayed());
     }

@@ -33,7 +33,7 @@ public class RegisterPage extends BasePage {
 
     }
 
-    public HomePage selectMaleGender() {
+    public RegisterPage selectMaleGender() {
         maleRadioButton.check();
         return this.selectMaleGender();
     }

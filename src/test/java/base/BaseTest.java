@@ -5,6 +5,7 @@ import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.BrowserType;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
+import io.qameta.allure.Allure;
 import org.page.HomePage;
 import org.page.LoginPage;
 import org.page.RegisterPage;
@@ -17,6 +18,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.ITestResult;
 import org.utils.ConfigManager;
 
+import java.io.ByteArrayInputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -64,37 +66,47 @@ public class BaseTest {
         registerPageSteps = new RegisterPageSteps(registerPage);
     }
 
-    @AfterMethod (alwaysRun = true)
+    @AfterMethod(alwaysRun = true)
     public void tearDown(ITestResult result) {
+
         try {
+
             if (result.getStatus() == ITestResult.FAILURE
                     && page != null
                     && !page.isClosed()) {
 
-                Path directory = Paths.get("build", "screenshots");
-                Files.createDirectories(directory);
+                byte[] screenshot = page.screenshot(
+                        new Page.ScreenshotOptions()
+                                .setFullPage(true)
+                );
 
-                String fileName = result.getMethod().getMethodName()
-                        + "_" + UUID.randomUUID() + ".png";
-
-                Path screenshotPath = directory.resolve(fileName);
-
-                page.screenshot(new Page.ScreenshotOptions()
-                        .setPath(screenshotPath)
-                        .setFullPage(true));
-
-                System.out.println(
-                        "Screenshot: " + screenshotPath.toAbsolutePath()
+                Allure.addAttachment(
+                        "Failed test screenshot",
+                        "image/png",
+                        new ByteArrayInputStream(screenshot),
+                        ".png"
                 );
             }
+
         } catch (Exception e) {
+
             System.err.println(
-                    "Failed to take a screenshot: " + e.getMessage()
+                    "Failed to take screenshot: " + e.getMessage()
             );
+
         } finally {
-            context.close();
-            browser.close();
-            playwright.close();
+
+            if (context != null) {
+                context.close();
+            }
+
+            if (browser != null) {
+                browser.close();
+            }
+
+            if (playwright != null) {
+                playwright.close();
+            }
         }
     }
 }
