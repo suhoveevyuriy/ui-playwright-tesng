@@ -18,13 +18,12 @@ public class LoginTest extends BaseTest {
 
         logger.info("Login test started");
 
-        LoginPageSteps loginSteps = new LoginPageSteps(loginPage);
 
         loginPage.clickLoginButton();
 
-        loginSteps.login("suhoveev07@gmail.com", "Test123@");
+        loginPageSteps.login("suhoveev07@gmail.com", "Test123@");
 
-        Assert.assertFalse(loginSteps.isLoginErrorDisplayed());
+        Assert.assertFalse( loginPageSteps.isLoginErrorDisplayed());
     }
 
     @Test

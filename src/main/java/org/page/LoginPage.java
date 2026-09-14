@@ -3,9 +3,8 @@ package org.page;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 
-public class LoginPage {
+public class LoginPage extends BasePage {
 
-    private final Page page;
 
     private final Locator emailInput;
     private final Locator passwordInput;
@@ -14,7 +13,7 @@ public class LoginPage {
     private final Locator submitLogin;
 
     public LoginPage(Page page) {
-        this.page = page;
+       super(page);
 
         emailInput = page.locator("#Email");
         passwordInput = page.locator("#Password");
@@ -23,16 +22,19 @@ public class LoginPage {
         submitLogin =page.locator(".login-button");
     }
 
-    public void enterEmail(String email) {
+    public LoginPage enterEmail(String email) {
         emailInput.fill(email);
+        return this;
     }
 
-    public void enterPassword(String password) {
+    public LoginPage enterPassword(String password) {
         passwordInput.fill(password);
+        return this;
     }
 
-    public void clickLoginButton() {
+    public LoginPage clickLoginButton() {
         loginButton.click();
+        return this;
     }
 
     public String getValidationMessage() {
@@ -42,7 +44,8 @@ public class LoginPage {
     public boolean isValidationMessageVisible() {
         return validationMessage.isVisible();
     }
-    public void clickSubmitLogin () {
+    public LoginPage clickSubmitLogin () {
         submitLogin.click();
+        return this;
     }
 }

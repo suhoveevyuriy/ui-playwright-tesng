@@ -3,9 +3,8 @@ package org.page;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 
-public class RegisterPage {
+public class RegisterPage extends BasePage {
 
-    private final Page page;
 
     private final Locator registerLink;
     private final Locator maleRadioButton;
@@ -16,10 +15,9 @@ public class RegisterPage {
     private final Locator passwordInput;
     private final Locator confirmPasswordInput;
     private final Locator registerButton;
-    private final Locator registrationResult;
 
     public RegisterPage(Page page) {
-        this.page = page;
+        super(page);
 
         registerLink = page.locator(".ico-register");
 
@@ -35,19 +33,10 @@ public class RegisterPage {
 
         registerButton = page.locator("#register-button");
 
-        registrationResult = page.locator(".result");
-    }
-
-    public void openRegisterPage() {
-        registerLink.click();
     }
 
     public void selectMaleGender() {
         maleRadioButton.check();
-    }
-
-    public void selectFemaleGender() {
-        femaleRadioButton.check();
     }
 
     public void enterFirstName(String firstName) {
@@ -72,13 +61,5 @@ public class RegisterPage {
 
     public void clickRegisterButton() {
         registerButton.click();
-    }
-
-    public String getRegistrationResult() {
-        return registrationResult.textContent();
-    }
-
-    public boolean isRegistrationSuccessful() {
-        return registrationResult.isVisible();
     }
 }

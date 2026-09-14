@@ -11,10 +11,12 @@ public class LoginPageSteps {
     }
 
     public void login(String email, String password) {
-        loginPage.clickLoginButton();
-        loginPage.enterEmail(email);
-        loginPage.enterPassword(password);
-        loginPage.clickSubmitLogin();
+        loginPage
+                .clickLoginButton()
+                .enterEmail(email)
+                .enterPassword(password)
+                .clickSubmitLogin();
+
     }
 
     public boolean isLoginErrorDisplayed() {

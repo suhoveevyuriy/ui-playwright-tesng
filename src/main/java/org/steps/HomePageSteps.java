@@ -11,15 +11,12 @@ public class HomePageSteps {
     }
 
     public void searchProduct(String productName) {
+
         homePage.enterSearchText(productName);
         homePage.clickSearchButton();
     }
 
     public void logout() {
         homePage.logout();
-    }
-
-    public void openHomePage() {
-        homePage.openHomePage();
     }
 }
