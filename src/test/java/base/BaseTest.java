@@ -15,6 +15,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 import org.testng.ITestResult;
+import org.utils.ConfigManager;
+
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -40,16 +42,18 @@ public class BaseTest {
 
         playwright = Playwright.create();
 
+        boolean headless = Boolean.parseBoolean(ConfigManager.get("headless"));
+
         browser = playwright.chromium().launch(
                 new BrowserType.LaunchOptions()
-                        .setHeadless(false)
+                        .setHeadless(headless)
         );
 
         context = browser.newContext();
 
         page = context.newPage();
 
-        page.navigate("https://demowebshop.tricentis.com/");
+        page.navigate(ConfigManager.get("baseUrl"));
 
         homePage = new HomePage(page);
         loginPage = new LoginPage(page);
