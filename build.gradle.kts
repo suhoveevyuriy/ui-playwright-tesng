@@ -20,6 +20,9 @@ dependencies {
     implementation("io.qameta.allure:allure-testng:2.35.5")
     testImplementation("net.datafaker:datafaker:2.7.0")
 
+    testImplementation("io.rest-assured:rest-assured:5.5.6")
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.20.0")
+
 
 }
 

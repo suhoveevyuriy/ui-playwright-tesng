@@ -1,12 +1,12 @@
-package webShop;
+package ui.webShop;
 
-import base.BaseTest;
+import ui.base.UiBaseTest;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class LogoutTest extends BaseTest {
+public class LogoutTest extends UiBaseTest {
     private static final Logger logger =
             LogManager.getLogger(LogoutTest.class);
 

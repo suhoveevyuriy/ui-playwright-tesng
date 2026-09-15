@@ -1,4 +1,4 @@
-package base;
+package ui.base;
 
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserContext;
@@ -20,7 +20,7 @@ import org.utils.ConfigManager;
 
 import java.io.ByteArrayInputStream;
 
-public class BaseTest {
+public class UiBaseTest {
 
     protected Playwright playwright;
     protected Browser browser;

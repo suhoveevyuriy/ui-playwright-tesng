@@ -1,16 +1,15 @@
-package webShop;
+package ui.webShop;
 
-import base.BaseTest;
+import ui.base.UiBaseTest;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.steps.RegisterPageSteps;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import net.datafaker.Faker;
 
 import java.util.Locale;
 
-public class SuccessfulRegistration extends BaseTest {
+public class SuccessfulRegistration extends UiBaseTest {
 
     private static final Logger logger =
             LogManager.getLogger(SuccessfulRegistration.class);
