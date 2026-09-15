@@ -1,5 +1,6 @@
 package org.steps;
 
+import io.qameta.allure.Step;
 import org.page.RegisterPage;
 
 public class RegisterPageSteps {
@@ -9,7 +10,7 @@ public class RegisterPageSteps {
     public RegisterPageSteps(RegisterPage registerPage) {
         this.registerPage = registerPage;
     }
-
+    @Step("Check that user can fill needed fields")
     public void registerMaleUser(
             String firstName,
             String lastName,

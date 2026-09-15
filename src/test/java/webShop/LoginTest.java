@@ -24,9 +24,8 @@ public class LoginTest extends BaseTest {
     public void verifyInvalidLogin() throws InterruptedException {
 
         logger.info("Invalid login test started");
-        LoginPageSteps loginSteps = new LoginPageSteps(loginPage);
         loginPage.clickLoginButton();
-        loginSteps.login("tesdf@gmail.com", "Test123@");
+        loginPageSteps.login("yuriy123@gmail.com", "Test123@");
         Assert.assertTrue(loginPage.isValidationMessageVisible());
         logger.info("Invalid login finished");
     }
@@ -36,6 +35,13 @@ public class LoginTest extends BaseTest {
         return new Object[][]{
                 {"suho43434@gmail.com", "Test123@"},
                 {"suhoy07@gmail.com", "Test123@"}
+        };
+    }
+    @DataProvider
+    public Object[][] InvalidUsers() {
+        return new Object[][]{
+                {"petro7@gmail.com", "Test1235@"},
+                {"yuriy7@gmail.com", "Test1237@"}
         };
     }
 }
