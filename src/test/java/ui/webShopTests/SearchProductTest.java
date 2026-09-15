@@ -1,4 +1,4 @@
-package ui.webShop;
+package ui.webShopTests;
 import ui.base.UiBaseTest;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
