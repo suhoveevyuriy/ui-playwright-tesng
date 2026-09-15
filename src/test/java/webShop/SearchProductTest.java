@@ -1,9 +1,7 @@
 package webShop;
-
 import base.BaseTest;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.steps.HomePageSteps;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -14,16 +12,11 @@ public class SearchProductTest extends BaseTest {
 
     @Test
     public void verifySearchProduct() {
-
         logger.info("Search Product test started");
-        HomePageSteps homePageSteps = new HomePageSteps(homePage);
-
         homePageSteps.searchProduct("Camcorder");
-
         Assert.assertTrue(
                 page.locator(".product-title").first().isVisible()
         );
-
         logger.info("Search Product test finished");
     }
 }

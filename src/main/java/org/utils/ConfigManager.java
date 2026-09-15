@@ -7,7 +7,6 @@ import java.util.Properties;
 public class ConfigManager {
 
     private static final Properties properties = new Properties();
-
     static {
         try {
             FileInputStream file =
@@ -19,7 +18,6 @@ public class ConfigManager {
             throw new RuntimeException("Cannot load config.properties");
         }
     }
-
     public static String get(String key) {
         return properties.getProperty(key);
     }

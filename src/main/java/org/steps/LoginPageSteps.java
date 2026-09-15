@@ -16,9 +16,7 @@ public class LoginPageSteps {
                 .enterEmail(email)
                 .enterPassword(password)
                 .clickSubmitLogin();
-
     }
-
     public boolean isLoginErrorDisplayed() {
         return loginPage.isValidationMessageVisible();
     }

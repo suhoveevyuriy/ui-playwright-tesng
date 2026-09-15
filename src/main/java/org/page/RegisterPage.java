@@ -37,32 +37,26 @@ public class RegisterPage extends BasePage {
         maleRadioButton.check();
         return this;
     }
-
     public RegisterPage enterFirstName(String firstName) {
         firstNameInput.fill(firstName);
         return this;
     }
-
     public RegisterPage enterLastName(String lastName) {
         lastNameInput.fill(lastName);
         return this;
     }
-
     public RegisterPage enterEmail(String email) {
         emailInput.fill(email);
         return this;
     }
-
     public RegisterPage enterPassword(String password) {
         passwordInput.fill(password);
         return this;
     }
-
     public RegisterPage enterConfirmPassword(String password) {
         confirmPasswordInput.fill(password);
         return this;
     }
-
     public RegisterPage clickRegisterButton() {
         registerButton.click();
         return this;

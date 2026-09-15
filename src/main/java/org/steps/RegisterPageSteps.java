@@ -16,15 +16,14 @@ public class RegisterPageSteps {
             String email,
             String password
     ) {
-
-////// треба розібратись так як в RegisterPage вказав return this але не можу вказувати методи просто через крапку
-        registerPage.selectMaleGender();
-        registerPage.enterFirstName(firstName);
-        registerPage.enterLastName(lastName);
-        registerPage.enterEmail(email);
-        registerPage.enterPassword(password);
-        registerPage.enterConfirmPassword(password);
-        registerPage.clickRegisterButton();
+        registerPage
+                .selectMaleGender()
+                .enterFirstName(firstName)
+                .enterLastName(lastName)
+                .enterEmail(email)
+                .enterPassword(password)
+                .enterConfirmPassword(password)
+                .clickRegisterButton();
     }
 
 }

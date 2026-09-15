@@ -37,26 +37,18 @@ public class BaseTest {
 
     @BeforeMethod
     public void setUp() {
-
         playwright = Playwright.create();
-
         boolean headless = Boolean.parseBoolean(ConfigManager.get("headless"));
-
         browser = playwright.chromium().launch(
                 new BrowserType.LaunchOptions()
                         .setHeadless(headless)
         );
-
         context = browser.newContext();
-
         page = context.newPage();
-
         page.navigate(ConfigManager.get("baseUrl"));
-
         homePage = new HomePage(page);
         loginPage = new LoginPage(page);
         registerPage = new RegisterPage(page);
-
         homePageSteps = new HomePageSteps(homePage);
         loginPageSteps = new LoginPageSteps(loginPage);
         registerPageSteps = new RegisterPageSteps(registerPage);
@@ -64,18 +56,14 @@ public class BaseTest {
 
     @AfterMethod(alwaysRun = true)
     public void tearDown(ITestResult result) {
-
         try {
-
             if (result.getStatus() == ITestResult.FAILURE
                     && page != null
                     && !page.isClosed()) {
-
                 byte[] screenshot = page.screenshot(
                         new Page.ScreenshotOptions()
                                 .setFullPage(true)
                 );
-
                 Allure.addAttachment(
                         "Failed test screenshot",
                         "image/png",
@@ -83,23 +71,17 @@ public class BaseTest {
                         ".png"
                 );
             }
-
         } catch (Exception e) {
-
             System.err.println(
                     "Failed to take screenshot: " + e.getMessage()
             );
-
         } finally {
-
             if (context != null) {
                 context.close();
             }
-
             if (browser != null) {
                 browser.close();
             }
-
             if (playwright != null) {
                 playwright.close();
             }

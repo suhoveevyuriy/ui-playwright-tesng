@@ -9,7 +9,6 @@ public abstract class BasePage {
     public BasePage(Page page) {
         this.page = page;
     }
-
     public String getBaseUrl() {
         return page.url();
     }

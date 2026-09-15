@@ -18,29 +18,16 @@ public class HomePage extends BasePage {
         logoutButton = page.locator(".ico-logout");
         homeButton = page.locator(".header-logo a");
     }
-
     public HomePage logout() {
         logoutButton.click();
         return this;
     }
-
     public HomePage enterSearchText(String productName) {
         searchInput.fill(productName);
         return this;
     }
-
     public HomePage clickSearchButton() {
         searchButton.click();
-        return this;
-    }
-
-    public HomePage clickLogout() {
-        logoutButton.click();
-        return this;
-    }
-
-    public HomePage openHomePage() {
-        homeButton.click();
         return this;
     }
 }

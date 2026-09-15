@@ -4,8 +4,6 @@ import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 
 public class LoginPage extends BasePage {
-
-
     private final Locator emailInput;
     private final Locator passwordInput;
     private final Locator loginButton;
@@ -21,26 +19,18 @@ public class LoginPage extends BasePage {
         validationMessage = page.locator(".validation-summary-errors");
         submitLogin =page.locator(".login-button");
     }
-
     public LoginPage enterEmail(String email) {
         emailInput.fill(email);
         return this;
     }
-
     public LoginPage enterPassword(String password) {
         passwordInput.fill(password);
         return this;
     }
-
     public LoginPage clickLoginButton() {
         loginButton.click();
         return this;
     }
-
-    public String getValidationMessage() {
-        return validationMessage.textContent();
-    }
-
     public boolean isValidationMessageVisible() {
         return validationMessage.isVisible();
     }
