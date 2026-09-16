@@ -1,4 +1,4 @@
-package ui.base;
+package ui.baseUI;
 
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserContext;
