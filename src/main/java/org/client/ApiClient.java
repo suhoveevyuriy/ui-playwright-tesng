@@ -16,13 +16,10 @@ public class ApiClient {
     public ApiClient(String baseUrl, String username, String password) {
         this.client = HttpClient.newHttpClient();
         this.baseUrl = baseUrl;
-
         String credentials = username + ":" + password;
-
         this.basicAuth = "Basic " + Base64.getEncoder()
                 .encodeToString(credentials.getBytes(StandardCharsets.UTF_8));
     }
-
     public HttpResponse<String> post(
             String endpoint,
             String body
@@ -42,7 +39,6 @@ public class ApiClient {
                 HttpResponse.BodyHandlers.ofString()
         );
     }
-
     public HttpResponse<String> post(
             String endpoint,
             String body,

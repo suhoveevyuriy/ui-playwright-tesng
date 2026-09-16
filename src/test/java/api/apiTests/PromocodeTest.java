@@ -7,18 +7,16 @@ import org.testng.annotations.Test;
 
 import java.net.http.HttpResponse;
 
-public class PromoCodeTest extends ApiBaseTest {
+public class PromocodeTest extends ApiBaseTest {
 
     @Test(groups = "api")
     public void activateValidPromoCode() throws Exception {
         registerTestUser();
-
         String requestBody = """
                 {
                     "code": "075D800A28"
                 }
                 """;
-
         HttpResponse<String> response = apiClient.post(
                 "/apiv2/promocodes/activate",
                 requestBody,
@@ -36,13 +34,11 @@ public class PromoCodeTest extends ApiBaseTest {
     @Test(groups = "api")
     public void activateExpiredPromoCode() throws Exception {
         registerTestUser();
-
         String requestBody = """
                 {
                     "code": "D786952181"
                 }
                 """;
-
         HttpResponse<String> response = apiClient.post(
                 "/apiv2/promocodes/activate",
                 requestBody,
