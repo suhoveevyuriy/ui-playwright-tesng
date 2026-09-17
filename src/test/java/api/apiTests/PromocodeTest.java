@@ -1,58 +1,38 @@
 package api.apiTests;
 
 import api.baseApi.ApiBaseTest;
-import com.fasterxml.jackson.databind.JsonNode;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import java.net.http.HttpResponse;
+import static org.hamcrest.Matchers.equalTo;
 
 public class PromocodeTest extends ApiBaseTest {
 
-    @Test(groups = "api")
-    public void activateValidPromoCode() throws Exception {
-        registerTestUser();
-        String requestBody = """
-                {
-                    "code": "075D800A28"
-                }
-                """;
-        HttpResponse<String> response = apiClient.post(
-                "/apiv2/promocodes/activate",
-                requestBody,
-                sessionData.getToken()
-        );
-        Assert.assertEquals(response.statusCode(), 200);
-        JsonNode json = objectMapper.readTree(response.body());
+    private static final String VALID_PROMO_CODE = "075D800A28";
+    private static final String EXPIRED_PROMO_CODE = "D786952181";
 
-        Assert.assertTrue(json.get("status").asBoolean());
-        System.out.println("Valid promo code activated");
-        System.out.println(response.body());
+    @Test(groups = "api")
+    public void activateValidPromoCode() {
+        registerTestUser();
+
+        promoCodeApiSteps.activatePromoCode(
+                        VALID_PROMO_CODE,
+                        sessionData.getToken()
+                )
+                .then()
+                .statusCode(200)
+                .body("status", equalTo(true));
     }
 
     @Test(groups = "api")
-    public void activateExpiredPromoCode() throws Exception {
+    public void activateExpiredPromoCode() {
         registerTestUser();
-        String requestBody = """
-                {
-                    "code": "D786952181"
-                }
-                """;
-        HttpResponse<String> response = apiClient.post(
-                "/apiv2/promocodes/activate",
-                requestBody,
-                sessionData.getToken()
-        );
 
-        Assert.assertEquals(response.statusCode(), 200);
-        JsonNode json = objectMapper.readTree(response.body());
-
-        Assert.assertFalse(json.get("status").asBoolean());
-        Assert.assertEquals(
-                json.get("reason").asText(),
-                "expired promocode"
-        );
-        System.out.println("Expired promo code rejected");
-        System.out.println(response.body());
+        promoCodeApiSteps.activatePromoCode(
+                        EXPIRED_PROMO_CODE,
+                        sessionData.getToken()
+                )
+                .then()
+                .statusCode(200)
+                .body("status", equalTo(false))
+                .body("reason", equalTo("expired promocode"));
     }
 }

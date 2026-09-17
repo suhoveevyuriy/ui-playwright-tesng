@@ -17,7 +17,6 @@ public class LoginTest extends ApiBaseTest {
                 sessionData.getEmail(),
                 sessionData.getPassword()
         );
-
         String token = response.then()
                 .statusCode(200)
                 .body("status", equalTo(true))
