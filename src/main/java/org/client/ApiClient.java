@@ -1,61 +1,46 @@
 package org.client;
-
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.nio.charset.StandardCharsets;
-import java.util.Base64;
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 
 public class ApiClient {
-    private final HttpClient client;
     private final String baseUrl;
-    private final String basicAuth;
+    private final String username;
+    private final String password;
 
     public ApiClient(String baseUrl, String username, String password) {
-        this.client = HttpClient.newHttpClient();
         this.baseUrl = baseUrl;
-        String credentials = username + ":" + password;
-        this.basicAuth = "Basic " + Base64.getEncoder()
-                .encodeToString(credentials.getBytes(StandardCharsets.UTF_8));
+        this.username = username;
+        this.password = password;
     }
-    public HttpResponse<String> post(
-            String endpoint,
-            String body
-    ) throws Exception {
-
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(baseUrl + endpoint))
-                .header("Content-Type", "application/json")
-                .header("Accept", "application/json")
-                .header("Authorization", basicAuth)
-                .header("localization", "ua")
-                .POST(HttpRequest.BodyPublishers.ofString(body))
-                .build();
-
-        return client.send(
-                request,
-                HttpResponse.BodyHandlers.ofString()
-        );
+    private RequestSpecification baseRequest() {
+        return RestAssured.given()
+                .baseUri(baseUrl)
+                .contentType(ContentType.JSON)
+                .accept(ContentType.JSON)
+                .header("localization", "ua");
     }
-    public HttpResponse<String> post(
+    public Response postWithBasicAuth(String endpoint, String body) {
+        return baseRequest()
+                .auth()
+                .preemptive()
+                .basic(username, password)
+                .body(body)
+                .when()
+                .post(endpoint);
+    }
+
+    public Response postWithBearerToken(
             String endpoint,
             String body,
             String token
-    ) throws Exception {
-
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(baseUrl + endpoint))
-                .header("Content-Type", "application/json")
-                .header("Accept", "application/json")
-                .header("Authorization", "Bearer " + token)
-                .header("localization", "ua")
-                .POST(HttpRequest.BodyPublishers.ofString(body))
-                .build();
-
-        return client.send(
-                request,
-                HttpResponse.BodyHandlers.ofString()
-        );
+    ) {
+        return baseRequest()
+                .auth()
+                .oauth2(token)
+                .body(body)
+                .when()
+                .post(endpoint);
     }
 }
