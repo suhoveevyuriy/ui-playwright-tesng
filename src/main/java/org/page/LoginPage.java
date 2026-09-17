@@ -11,30 +11,35 @@ public class LoginPage extends BasePage {
     private final Locator submitLogin;
 
     public LoginPage(Page page) {
-       super(page);
+        super(page);
 
         emailInput = page.locator("#Email");
         passwordInput = page.locator("#Password");
         loginButton = page.locator(".ico-login");
         validationMessage = page.locator(".validation-summary-errors");
-        submitLogin =page.locator(".login-button");
+        submitLogin = page.locator(".login-button");
     }
+
     public LoginPage enterEmail(String email) {
         emailInput.fill(email);
         return this;
     }
+
     public LoginPage enterPassword(String password) {
         passwordInput.fill(password);
         return this;
     }
+
     public LoginPage clickLoginButton() {
         loginButton.click();
         return this;
     }
+
     public boolean isValidationMessageVisible() {
         return validationMessage.isVisible();
     }
-    public LoginPage clickSubmitLogin () {
+
+    public LoginPage clickSubmitLogin() {
         submitLogin.click();
         return this;
     }

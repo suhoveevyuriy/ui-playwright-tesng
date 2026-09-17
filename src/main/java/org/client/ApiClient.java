@@ -1,4 +1,5 @@
 package org.client;
+
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -14,6 +15,7 @@ public class ApiClient {
         this.username = username;
         this.password = password;
     }
+
     private RequestSpecification baseRequest() {
         return RestAssured.given()
                 .baseUri(baseUrl)
@@ -21,6 +23,7 @@ public class ApiClient {
                 .accept(ContentType.JSON)
                 .header("localization", "ua");
     }
+
     public Response postWithBasicAuth(String endpoint, String body) {
         return baseRequest()
                 .auth()
