@@ -26,6 +26,22 @@ dependencies {
 
 }
 
+val requestedGroups = providers.gradleProperty("groups").orNull
+
 tasks.test {
-    useTestNG()
+    useTestNG {
+        if (!requestedGroups.isNullOrBlank()) {
+            includeGroups(
+                *requestedGroups
+                    .split(",")
+                    .map { it.trim() }
+                    .filter { it.isNotEmpty() }
+                    .toTypedArray()
+            )
+        }
+    }
+
+    testLogging {
+        events("passed", "skipped", "failed")
+    }
 }

@@ -11,12 +11,6 @@ import java.util.Locale;
 
 public class ApiBaseTest {
 
-    private static final String BASE_URL = "https://stage.slotcity.ua";
-    private static final String API_USERNAME =
-            System.getenv("intusers");
-    private static final String API_PASSWORD =
-            System.getenv("GjRQVKrtZAFc");
-
     protected ApiClient apiClient;
     protected SessionData sessionData;
     protected AuthApiSteps authApiSteps;
@@ -27,16 +21,18 @@ public class ApiBaseTest {
     @BeforeClass(alwaysRun = true)
     public void setUpApi() {
         apiClient = new ApiClient(
-                BASE_URL,
-                API_USERNAME,
-                API_PASSWORD
+                "https://stage.slotcity.ua",
+                "intusers",
+                "GjRQVKrtZAFc"
         );
+
         sessionData = new SessionData();
         authApiSteps = new AuthApiSteps(apiClient);
         promoCodeApiSteps = new PromoCodeApiSteps(apiClient);
     }
+
     protected Response registerTestUser() {
-        String email = FAKER.bothify("haribo+3233432")
+        String email = FAKER.bothify("haribo??##")
                 + "+" + System.currentTimeMillis()
                 + "@sharkscode.com";
 
