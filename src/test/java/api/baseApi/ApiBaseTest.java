@@ -36,7 +36,7 @@ public class ApiBaseTest {
         promoCodeApiSteps = new PromoCodeApiSteps(apiClient);
     }
     protected Response registerTestUser() {
-        String email = FAKER.bothify("haribo??##")
+        String email = FAKER.bothify("haribo+3233432")
                 + "+" + System.currentTimeMillis()
                 + "@sharkscode.com";
 

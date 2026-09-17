@@ -10,6 +10,7 @@ public class RegisterPageSteps {
     public RegisterPageSteps(RegisterPage registerPage) {
         this.registerPage = registerPage;
     }
+
     @Step("Check that user can fill needed fields")
     public void registerMaleUser(
             String firstName,
