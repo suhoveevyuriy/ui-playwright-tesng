@@ -4,7 +4,6 @@ import api.baseApi.ApiBaseTest;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import static org.hamcrest.Matchers.equalTo;
 
 public class LoginTest extends ApiBaseTest {

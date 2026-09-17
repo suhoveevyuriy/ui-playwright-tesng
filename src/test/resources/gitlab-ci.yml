@@ -1,0 +1,4 @@
+job name:
+  stage: build
+  script:
+  - echo "Do your build here"

@@ -1,4 +1,4 @@
-package org.page;
+package ui.page;
 
 import com.microsoft.playwright.Page;
 
@@ -8,10 +8,6 @@ public abstract class BasePage {
 
     public BasePage(Page page) {
         this.page = page;
-    }
-
-    public String getBaseUrl() {
-        return page.url();
     }
 
 }

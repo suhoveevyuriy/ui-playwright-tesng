@@ -3,11 +3,10 @@ package api.baseApi;
 import api.models.SessionData;
 import io.restassured.response.Response;
 import net.datafaker.Faker;
-import org.client.ApiClient;
-import org.steps.AuthApiSteps;
-import org.steps.PromoCodeApiSteps;
+import api.client.ApiClient;
+import api.facade.AuthApiSteps;
+import api.facade.PromoCodeApiSteps;
 import org.testng.annotations.BeforeClass;
-import java.util.Locale;
 
 public class ApiBaseTest {
 
@@ -16,7 +15,7 @@ public class ApiBaseTest {
     protected AuthApiSteps authApiSteps;
     protected PromoCodeApiSteps promoCodeApiSteps;
 
-    private static final Faker FAKER = new Faker(Locale.ENGLISH);
+    private static final Faker FAKER = new Faker();
 
     @BeforeClass(alwaysRun = true)
     public void setUpApi() {

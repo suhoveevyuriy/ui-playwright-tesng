@@ -1,8 +1,8 @@
-package org.steps;
+package api.facade;
 
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
-import org.client.ApiClient;
+import api.client.ApiClient;
 
 public class PromoCodeApiSteps {
 

@@ -6,17 +6,17 @@ import com.microsoft.playwright.BrowserType;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
 import io.qameta.allure.Allure;
-import org.page.HomePage;
-import org.page.LoginPage;
-import org.page.RegisterPage;
-import org.steps.HomePageSteps;
-import org.steps.LoginPageSteps;
-import org.steps.RegisterPageSteps;
+import ui.page.HomePage;
+import ui.page.LoginPage;
+import ui.page.RegisterPage;
+import ui.steps.HomePageSteps;
+import ui.steps.LoginPageSteps;
+import ui.steps.RegisterPageSteps;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 import org.testng.ITestResult;
-import org.utils.ConfigManager;
+import ui.utils.ConfigManager;
 
 import java.io.ByteArrayInputStream;
 

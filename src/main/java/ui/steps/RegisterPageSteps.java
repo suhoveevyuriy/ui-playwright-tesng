@@ -1,7 +1,7 @@
-package org.steps;
+package ui.steps;
 
 import io.qameta.allure.Step;
-import org.page.RegisterPage;
+import ui.page.RegisterPage;
 
 public class RegisterPageSteps {
 

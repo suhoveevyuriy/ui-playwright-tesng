@@ -1,4 +1,4 @@
-package org.client;
+package api.client;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -11,7 +11,7 @@ public class ApiClient {
     private final String password;
 
     public ApiClient(String baseUrl, String username, String password) {
-        this.baseUrl = baseUrl;
+        this.baseUrl  =  baseUrl;
         this.username = username;
         this.password = password;
     }

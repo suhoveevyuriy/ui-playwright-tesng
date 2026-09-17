@@ -1,6 +1,6 @@
-package org.steps;
+package ui.steps;
 
-import org.page.HomePage;
+import ui.page.HomePage;
 import io.qameta.allure.Step;
 
 public class HomePageSteps {
