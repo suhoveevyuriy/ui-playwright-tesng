@@ -53,7 +53,6 @@ public class UiBaseTest {
         loginPageSteps = new LoginPageSteps(loginPage);
         registerPageSteps = new RegisterPageSteps(registerPage);
     }
-
     @AfterMethod(alwaysRun = true)
     public void tearDown(ITestResult result) {
         try {

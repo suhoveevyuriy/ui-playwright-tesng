@@ -1,5 +1,4 @@
 package api.models;
-
 public class SessionData {
 
     private String email;

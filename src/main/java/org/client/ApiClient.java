@@ -8,7 +8,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
 public class ApiClient {
-
     private final HttpClient client;
     private final String baseUrl;
     private final String basicAuth;

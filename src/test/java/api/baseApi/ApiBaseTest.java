@@ -6,7 +6,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
-
+import net.datafaker.Faker;
+import java.util.Locale;
 import java.net.http.HttpResponse;
 
 public class ApiBaseTest {
@@ -14,6 +15,7 @@ public class ApiBaseTest {
     protected ApiClient apiClient;
     protected SessionData sessionData;
     protected ObjectMapper objectMapper;
+    private static final Faker FAKER = new Faker(Locale.ENGLISH);
 
     @BeforeClass(alwaysRun = true)
     public void setUpApi() {
@@ -56,11 +58,8 @@ public class ApiBaseTest {
         );
 
         Assert.assertEquals(response.statusCode(), 200);
-
         JsonNode json = objectMapper.readTree(response.body());
-
         Assert.assertTrue(json.get("status").asBoolean());
-
         sessionData.setEmail(email);
         sessionData.setPassword(password);
         sessionData.setToken(json.get("user").get("token").asText());

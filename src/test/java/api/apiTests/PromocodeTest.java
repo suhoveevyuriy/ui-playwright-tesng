@@ -22,7 +22,6 @@ public class PromocodeTest extends ApiBaseTest {
                 requestBody,
                 sessionData.getToken()
         );
-
         Assert.assertEquals(response.statusCode(), 200);
         JsonNode json = objectMapper.readTree(response.body());
 

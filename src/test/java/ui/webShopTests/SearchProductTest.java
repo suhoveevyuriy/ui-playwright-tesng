@@ -10,7 +10,7 @@ public class SearchProductTest extends UiBaseTest {
     private static final Logger logger =
             LogManager.getLogger(SearchProductTest.class);
 
-    @Test
+    @Test(groups = "ui")
     public void verifySearchProduct() {
         logger.info("Search Product test started");
         homePageSteps.searchProduct("Camcorder");

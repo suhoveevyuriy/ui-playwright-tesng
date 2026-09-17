@@ -11,9 +11,7 @@ public class LoginTest extends ApiBaseTest {
 
     @Test(groups = "api")
     public void loginUser() throws Exception {
-
         registerTestUser();
-
         String requestBody = """
                 {
                     "type": "email",
@@ -38,7 +36,6 @@ public class LoginTest extends ApiBaseTest {
                 "/auth/login?on_device=true",
                 requestBody
         );
-
         Assert.assertEquals(response.statusCode(), 200);
         JsonNode json = objectMapper.readTree(response.body());
 

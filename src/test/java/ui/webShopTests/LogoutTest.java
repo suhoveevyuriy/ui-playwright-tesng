@@ -10,7 +10,7 @@ public class LogoutTest extends UiBaseTest {
     private static final Logger logger =
             LogManager.getLogger(LogoutTest.class);
 
-    @Test
+    @Test(groups = "ui")
     public void logoutTest() {
         logger.info("Logout test started");
         loginPageSteps.login(

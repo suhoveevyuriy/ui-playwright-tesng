@@ -16,7 +16,7 @@ public class SuccessfulRegistration extends UiBaseTest {
 
     private final Faker faker = new Faker(Locale.ENGLISH);
 
-    @Test
+    @Test(groups = "ui")
     public void verifyRegistration() {
         logger.info("Successful registration test started");
         page.navigate("https://demowebshop.tricentis.com/register");

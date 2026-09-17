@@ -19,7 +19,7 @@ public class LoginTest extends UiBaseTest {
         loginPageSteps.login(email, password);
         Assert.assertFalse(loginPageSteps.isLoginErrorDisplayed());
     }
-    @Test
+    @Test (groups = "ui")
     public void verifyInvalidLogin() throws InterruptedException {
 
         logger.info("Invalid login test started");
