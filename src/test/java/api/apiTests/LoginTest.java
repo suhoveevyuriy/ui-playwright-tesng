@@ -25,7 +25,7 @@ public class LoginTest extends ApiBaseTest {
 
         Assert.assertFalse(
                 token.isBlank(),
-                "Token після login не може бути порожнім"
+                "Token can't be blank"
         );
 
         sessionData.setToken(token);

@@ -2,7 +2,6 @@ package api.apiTests;
 
 import api.baseApi.ApiBaseTest;
 import org.testng.annotations.Test;
-
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 

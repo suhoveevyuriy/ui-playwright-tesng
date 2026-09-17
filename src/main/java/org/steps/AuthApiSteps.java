@@ -1,5 +1,6 @@
 package org.steps;
 
+import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import org.client.ApiClient;
 
@@ -10,8 +11,8 @@ public class AuthApiSteps {
     public AuthApiSteps(ApiClient apiClient) {
         this.apiClient = apiClient;
     }
-
-    public Response login(String email, String password) {
+@Step("Get response after login")
+public Response login(String email, String password) {
         String requestBody = """
                 {
                     "type": "email",
