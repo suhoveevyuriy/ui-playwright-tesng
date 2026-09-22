@@ -12,7 +12,7 @@ public class PromocodeTest extends ApiBaseTest {
     @Test(groups = "api")
     public void activateValidPromoCode() {
         registerTestUser();
-        promoCodeApiSteps.activatePromoCode(
+        promoCodeApiFacade.activatePromoCode(
                         VALID_PROMO_CODE,
                         sessionData.getToken()
                 )
@@ -25,7 +25,7 @@ public class PromocodeTest extends ApiBaseTest {
     public void activateExpiredPromoCode() {
         registerTestUser();
 
-        promoCodeApiSteps.activatePromoCode(
+        promoCodeApiFacade.activatePromoCode(
                         EXPIRED_PROMO_CODE,
                         sessionData.getToken()
                 )

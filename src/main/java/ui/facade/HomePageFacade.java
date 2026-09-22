@@ -1,12 +1,12 @@
-package ui.steps;
+package ui.facade;
 
 import ui.page.HomePage;
 import io.qameta.allure.Step;
 
-public class HomePageSteps {
+public class HomePageFacade {
 
     private final HomePage homePage;
-    public HomePageSteps(HomePage homePage) {
+    public HomePageFacade(HomePage homePage) {
         this.homePage = homePage;
     }
     @Step ("Check that product can be searched")

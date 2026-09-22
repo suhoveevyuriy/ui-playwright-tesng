@@ -4,11 +4,11 @@ import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import api.client.ApiClient;
 
-public class PromoCodeApiSteps {
+public class PromoCodeApiFacade {
 
     private final ApiClient apiClient;
 
-    public PromoCodeApiSteps(ApiClient apiClient) {
+    public PromoCodeApiFacade(ApiClient apiClient) {
         this.apiClient = apiClient;
     }
     @Step("Activate Promocode")

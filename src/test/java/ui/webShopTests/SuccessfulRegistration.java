@@ -24,7 +24,7 @@ public class SuccessfulRegistration extends UiBaseTest {
         String firstName = faker.name().firstName();
         String lastName = faker.name().lastName();
         String email = faker.internet().emailAddress();
-        registerPageSteps.registerMaleUser(
+        registerPageFacade.registerMaleUser(
                 firstName,
                 lastName,
                 email,

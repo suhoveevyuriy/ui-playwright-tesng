@@ -4,11 +4,11 @@ import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import api.client.ApiClient;
 
-public class AuthApiSteps {
+public class AuthApiFacade {
 
     private final ApiClient apiClient;
 
-    public AuthApiSteps(ApiClient apiClient) {
+    public AuthApiFacade(ApiClient apiClient) {
         this.apiClient = apiClient;
     }
 @Step("Get response after login")

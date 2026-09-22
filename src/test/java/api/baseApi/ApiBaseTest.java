@@ -4,16 +4,16 @@ import api.models.SessionData;
 import io.restassured.response.Response;
 import net.datafaker.Faker;
 import api.client.ApiClient;
-import api.facade.AuthApiSteps;
-import api.facade.PromoCodeApiSteps;
+import api.facade.AuthApiFacade;
+import api.facade.PromoCodeApiFacade;
 import org.testng.annotations.BeforeClass;
 
 public class ApiBaseTest {
 
     protected ApiClient apiClient;
     protected SessionData sessionData;
-    protected AuthApiSteps authApiSteps;
-    protected PromoCodeApiSteps promoCodeApiSteps;
+    protected AuthApiFacade authApiFacade;
+    protected PromoCodeApiFacade promoCodeApiFacade;
 
     private static final Faker FAKER = new Faker();
 
@@ -26,8 +26,8 @@ public class ApiBaseTest {
         );
 
         sessionData = new SessionData();
-        authApiSteps = new AuthApiSteps(apiClient);
-        promoCodeApiSteps = new PromoCodeApiSteps(apiClient);
+        authApiFacade = new AuthApiFacade(apiClient);
+        promoCodeApiFacade = new PromoCodeApiFacade(apiClient);
     }
 
     protected Response registerTestUser() {

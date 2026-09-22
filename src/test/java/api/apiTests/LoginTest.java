@@ -12,7 +12,7 @@ public class LoginTest extends ApiBaseTest {
     public void loginUser() {
         registerTestUser();
 
-        Response response = authApiSteps.login(
+        Response response = authApiFacade.login(
                 sessionData.getEmail(),
                 sessionData.getPassword()
         );

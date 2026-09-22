@@ -16,15 +16,15 @@ public class LoginTest extends UiBaseTest {
     public void verifyLogin(String email, String password) {
         logger.info("Login test started");
         loginPage.clickLoginButton();
-        loginPageSteps.login(email, password);
-        Assert.assertFalse(loginPageSteps.isLoginErrorDisplayed());
+        loginPageFacade.login(email, password);
+        Assert.assertFalse(loginPageFacade.isLoginErrorDisplayed());
     }
     @Test (groups = "ui")
     public void verifyInvalidLogin() throws InterruptedException {
 
         logger.info("Invalid login test started");
         loginPage.clickLoginButton();
-        loginPageSteps.login("yuriy123@gmail.com", "Test123@");
+        loginPageFacade.login("yuriy123@gmail.com", "Test123@");
         Assert.assertTrue(loginPage.isValidationMessageVisible());
         logger.info("Invalid login finished");
     }

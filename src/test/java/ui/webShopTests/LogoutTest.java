@@ -13,11 +13,11 @@ public class LogoutTest extends UiBaseTest {
     @Test(groups = "ui")
     public void logoutTest() {
         logger.info("Logout test started");
-        loginPageSteps.login(
+        loginPageFacade.login(
                 "suhoveev07@gmail.com",
                 "Test123@"
         );
-        homePageSteps.logout();
+        homePageFacade.logout();
         Assert.assertTrue(
                 page.locator(".ico-login").isVisible()
         );

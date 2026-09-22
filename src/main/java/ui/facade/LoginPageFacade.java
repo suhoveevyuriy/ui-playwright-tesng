@@ -1,13 +1,13 @@
-package ui.steps;
+package ui.facade;
 
 import io.qameta.allure.Step;
 import ui.page.LoginPage;
 
-public class LoginPageSteps {
+public class LoginPageFacade {
 
     private final LoginPage loginPage;
 
-    public LoginPageSteps(LoginPage loginPage) {
+    public LoginPageFacade(LoginPage loginPage) {
         this.loginPage = loginPage;
     }
     @Step("Check that user can login")
