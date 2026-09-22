@@ -45,7 +45,7 @@ public class UiBaseTest {
         );
         context = browser.newContext();
         page = context.newPage();
-        page.navigate(ConfigManager.get("baseUrl"));
+        page.navigate(ConfigManager.getInstance().get("baseUrl"));
         homePage = new HomePage(page);
         loginPage = new LoginPage(page);
         registerPage = new RegisterPage(page);

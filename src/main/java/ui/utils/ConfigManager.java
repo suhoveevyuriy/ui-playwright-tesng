@@ -6,6 +6,8 @@ import java.util.Properties;
 
 public class ConfigManager {
 
+    private static ConfigManager instance;
+
     private static final Properties properties = new Properties();
     static {
         try {
@@ -18,7 +20,15 @@ public class ConfigManager {
             throw new RuntimeException("Cannot load config.properties");
         }
     }
+
+    public static ConfigManager getInstance() {
+
+        if (instance == null) instance = new ConfigManager();
+
+        return instance;
+    }
     public static String get(String key) {
         return properties.getProperty(key);
     }
+
 }

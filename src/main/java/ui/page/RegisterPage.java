@@ -6,7 +6,6 @@ import com.microsoft.playwright.Page;
 public class RegisterPage extends BasePage {
 
 
-    private final Locator registerLink;
     private final Locator maleRadioButton;
     private final Locator firstNameInput;
     private final Locator lastNameInput;
@@ -17,8 +16,6 @@ public class RegisterPage extends BasePage {
 
     public RegisterPage(Page page) {
         super(page);
-
-        registerLink = page.locator(".ico-register");
 
         maleRadioButton = page.locator("#gender-male");
 
