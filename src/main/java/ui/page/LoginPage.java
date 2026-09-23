@@ -35,12 +35,12 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    public boolean isValidationMessageVisible() {
-        return validationMessage.isVisible();
-    }
-
     public LoginPage clickSubmitLogin() {
         submitLogin.click();
         return this;
+    }
+
+    public Locator getValidationMessage() {
+        return validationMessage;
     }
 }

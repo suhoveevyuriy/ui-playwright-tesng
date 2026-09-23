@@ -14,18 +14,19 @@ public class LoginTest extends UiBaseTest {
 
     @Test(dataProvider = "loginUsers")
     public void verifyLogin(String email, String password) {
-        logger.info("Login test started");
+        logger.info("Success Login test started");
         loginPage.clickLoginButton();
         loginPageFacade.login(email, password);
-        Assert.assertFalse(loginPageFacade.isLoginErrorDisplayed());
+        loginPageFacade.verifySuccessfulLogin();
     }
-    @Test (groups = "ui")
+
+    @Test (groups= "ui")
     public void verifyInvalidLogin() throws InterruptedException {
 
         logger.info("Invalid login test started");
         loginPage.clickLoginButton();
         loginPageFacade.login("yuriy123@gmail.com", "Test123@");
-        Assert.assertTrue(loginPage.isValidationMessageVisible());
+        loginPageFacade.verifyInvalidLogin();
         logger.info("Invalid login finished");
     }
 
@@ -34,13 +35,6 @@ public class LoginTest extends UiBaseTest {
         return new Object[][]{
                 {"suho43434@gmail.com", "Test123@"},
                 {"suhoy07@gmail.com", "Test123@"}
-        };
-    }
-    @DataProvider
-    public Object[][] InvalidUsers() {
-        return new Object[][]{
-                {"petro7@gmail.com", "Test1235@"},
-                {"yuriy7@gmail.com", "Test1237@"}
         };
     }
 }
