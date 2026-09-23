@@ -23,6 +23,8 @@ dependencies {
     implementation("io.rest-assured:rest-assured:6.0.1")
     implementation("com.fasterxml.jackson.core:jackson-databind:2.20.0")
 
+    compileOnly("org.projectlombok:lombok:1.18.42")
+    annotationProcessor("org.projectlombok:lombok:1.18.42")
 
 }
 
