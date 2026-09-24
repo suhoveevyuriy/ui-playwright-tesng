@@ -1,4 +1,4 @@
-package ui.utils.builder;
+package utils.builder;
 
 import lombok.Builder;
 import lombok.Data;

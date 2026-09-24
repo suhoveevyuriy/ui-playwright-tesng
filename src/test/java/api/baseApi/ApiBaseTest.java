@@ -1,6 +1,6 @@
 package api.baseApi;
 
-import api.models.SessionData;
+import utils.models.SessionData;
 import io.restassured.response.Response;
 import net.datafaker.Faker;
 import api.client.ApiClient;

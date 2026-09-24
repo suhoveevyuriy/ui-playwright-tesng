@@ -1,4 +1,4 @@
-package api.models;
+package utils.models;
 
 public class SessionData {
 

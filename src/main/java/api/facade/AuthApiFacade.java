@@ -3,8 +3,8 @@ package api.facade;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import api.client.ApiClient;
-import ui.utils.builder.DeviceDto;
-import ui.utils.builder.LoginRequestDto;
+import utils.builder.DeviceDto;
+import utils.builder.LoginRequestDto;
 
 public class AuthApiFacade {
 
