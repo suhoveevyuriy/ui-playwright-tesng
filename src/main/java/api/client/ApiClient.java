@@ -24,7 +24,7 @@ public class ApiClient {
                 .header("localization", "ua");
     }
 
-    public Response postWithBasicAuth(String endpoint, String body) {
+    public Response postWithBasicAuth(String endpoint, Object body) {
         return baseRequest()
                 .auth()
                 .preemptive()
