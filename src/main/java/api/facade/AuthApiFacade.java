@@ -2,16 +2,16 @@ package api.facade;
 
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
-import api.client.ApiClient;
 import utils.builder.DeviceDto;
 import utils.builder.LoginRequestDto;
+import api.client.ApiLogger;
 
 public class AuthApiFacade {
 
-    private final ApiClient apiClient;
+    private final ApiLogger apiLogger;
 
-    public AuthApiFacade(ApiClient apiClient) {
-        this.apiClient = apiClient;
+    public AuthApiFacade(ApiLogger apiLogger) {
+        this.apiLogger = apiLogger;
     }
 @Step("Get response after login")
 public Response login(String email, String password) {
@@ -32,7 +32,7 @@ public Response login(String email, String password) {
             .device(device)
             .build();
 
-    return apiClient.postWithBasicAuth(
+    return apiLogger.postWithBasicAuth(
             "/auth/login?on_device=true",
             requestBody
     );

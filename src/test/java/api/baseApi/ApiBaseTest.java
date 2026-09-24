@@ -1,5 +1,6 @@
 package api.baseApi;
 
+import api.client.ApiLogger;
 import utils.models.SessionData;
 import io.restassured.response.Response;
 import net.datafaker.Faker;
@@ -14,6 +15,7 @@ public class ApiBaseTest {
     protected SessionData sessionData;
     protected AuthApiFacade authApiFacade;
     protected PromoCodeApiFacade promoCodeApiFacade;
+    protected ApiLogger apiLogger;
 
     private static final Faker FAKER = new Faker();
 
@@ -24,9 +26,11 @@ public class ApiBaseTest {
                 "intusers",
                 "GjRQVKrtZAFc"
         );
+        apiLogger = new ApiLogger(apiClient);
+
 
         sessionData = new SessionData();
-        authApiFacade = new AuthApiFacade(apiClient);
+        authApiFacade = new AuthApiFacade(apiLogger);
         promoCodeApiFacade = new PromoCodeApiFacade(apiClient);
     }
 

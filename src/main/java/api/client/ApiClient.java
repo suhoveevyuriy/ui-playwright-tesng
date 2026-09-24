@@ -10,6 +10,8 @@ public class ApiClient {
     private final String username;
     private final String password;
 
+
+
     public ApiClient(String baseUrl, String username, String password) {
         this.baseUrl  =  baseUrl;
         this.username = username;
