@@ -1,13 +1,13 @@
-package ui.facade;
+package ui.bo;
 
 import io.qameta.allure.Step;
 import ui.page.RegisterPage;
 
-public class RegisterPageFacade {
+public class RegisterPageBO {
 
     private final RegisterPage registerPage;
 
-    public RegisterPageFacade(RegisterPage registerPage) {
+    public RegisterPageBO(RegisterPage registerPage) {
         this.registerPage = registerPage;
     }
 

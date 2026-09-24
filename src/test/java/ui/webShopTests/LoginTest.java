@@ -15,8 +15,8 @@ public class LoginTest extends UiBaseTest {
     public void verifyLogin(String email, String password) {
         logger.info("Success Login test started");
         loginPage.clickLoginButton();
-        loginPageFacade.login(email, password);
-        loginPageFacade.verifySuccessfulLogin();
+        loginPageBO.login(email, password);
+        loginPageBO.verifySuccessfulLogin();
     }
 
     @Test
@@ -24,8 +24,8 @@ public class LoginTest extends UiBaseTest {
 
         logger.info("Invalid login test started");
         loginPage.clickLoginButton();
-        loginPageFacade.login("yuriy1823@gmail.com", "Test123@");
-        loginPageFacade.verifyInvalidLogin();
+        loginPageBO.login("yuriy1823@gmail.com", "Test123@");
+        loginPageBO.verifyInvalidLogin();
         logger.info("Invalid login finished");
     }
 

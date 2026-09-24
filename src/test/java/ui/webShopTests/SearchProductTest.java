@@ -13,7 +13,7 @@ public class SearchProductTest extends UiBaseTest {
     @Test(groups = "ui")
     public void verifySearchProduct() {
         logger.info("Search Product test started");
-        homePageFacade.searchProduct("Camcorder");
+        homePageBO.searchProduct("Camcorder");
         Assert.assertTrue(
                 page.locator(".product-title").first().isVisible()
         );

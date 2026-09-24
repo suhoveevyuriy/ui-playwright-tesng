@@ -1,15 +1,15 @@
-package ui.facade;
+package ui.bo;
 
 import io.qameta.allure.Step;
 import ui.page.LoginPage;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
-public class LoginPageFacade {
+public class LoginPageBO {
 
     private final LoginPage loginPage;
 
-    public LoginPageFacade(LoginPage loginPage) {
+    public LoginPageBO(LoginPage loginPage) {
         this.loginPage = loginPage;
     }
 

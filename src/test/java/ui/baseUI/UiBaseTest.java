@@ -9,9 +9,9 @@ import io.qameta.allure.Allure;
 import ui.page.HomePage;
 import ui.page.LoginPage;
 import ui.page.RegisterPage;
-import ui.facade.HomePageFacade;
-import ui.facade.LoginPageFacade;
-import ui.facade.RegisterPageFacade;
+import ui.bo.HomePageBO;
+import ui.bo.LoginPageBO;
+import ui.bo.RegisterPageBO;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -31,9 +31,9 @@ public class UiBaseTest {
     protected LoginPage loginPage;
     protected RegisterPage registerPage;
 
-    protected HomePageFacade homePageFacade;
-    protected LoginPageFacade loginPageFacade;
-    protected RegisterPageFacade registerPageFacade;
+    protected HomePageBO homePageBO;
+    protected LoginPageBO loginPageBO;
+    protected RegisterPageBO registerPageBO;
 
     @BeforeMethod
     public void setUp() {
@@ -49,9 +49,9 @@ public class UiBaseTest {
         homePage = new HomePage(page);
         loginPage = new LoginPage(page);
         registerPage = new RegisterPage(page);
-        homePageFacade = new HomePageFacade(homePage);
-        loginPageFacade = new LoginPageFacade(loginPage);
-        registerPageFacade = new RegisterPageFacade(registerPage);
+        homePageBO = new HomePageBO(homePage);
+        loginPageBO = new LoginPageBO(loginPage);
+        registerPageBO = new RegisterPageBO(registerPage);
     }
     @AfterMethod(alwaysRun = true)
     public void tearDown(ITestResult result) {
