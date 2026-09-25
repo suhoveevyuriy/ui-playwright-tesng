@@ -27,7 +27,7 @@ public class AuthApiFacade {
 
     LoginRequestDto request = LoginRequestDto.builder()
             .type("EMAIL")
-            .email("suhoveev07@gmail.com")
+            .email("haribo+2@sharkscode.com")
             .password("Test123@")
             .device(device)
             .build();
