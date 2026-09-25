@@ -27,7 +27,7 @@ public class ConfigManager {
 
         return instance;
     }
-    public static String get(String key) {
+    public String get(String key) {
         return properties.getProperty(key);
     }
 

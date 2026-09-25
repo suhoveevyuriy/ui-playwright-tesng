@@ -6,6 +6,7 @@ import com.microsoft.playwright.BrowserType;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
 import io.qameta.allure.Allure;
+import org.testng.annotations.BeforeSuite;
 import ui.page.HomePage;
 import ui.page.LoginPage;
 import ui.page.RegisterPage;
@@ -35,17 +36,25 @@ public class UiBaseTest {
     protected LoginPageBO loginPageBO;
     protected RegisterPageBO registerPageBO;
 
+    protected static ConfigManager config;
+
+
+    @BeforeSuite (alwaysRun = true)
+    public void initConfig () {
+        config = ConfigManager.getInstance();
+    }
+
     @BeforeMethod
     public void setUp() {
         playwright = Playwright.create();
-        boolean headless = Boolean.parseBoolean(ConfigManager.get("headless"));
+        boolean headless = Boolean.parseBoolean(config.get("headless"));
         browser = playwright.chromium().launch(
                 new BrowserType.LaunchOptions()
                         .setHeadless(headless)
         );
         context = browser.newContext();
         page = context.newPage();
-        page.navigate(ConfigManager.getInstance().get("baseUrl"));
+        page.navigate(config.get("baseUrl"));
         homePage = new HomePage(page);
         loginPage = new LoginPage(page);
         registerPage = new RegisterPage(page);
