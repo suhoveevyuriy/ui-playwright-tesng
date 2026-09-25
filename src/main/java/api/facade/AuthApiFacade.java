@@ -14,8 +14,8 @@ public class AuthApiFacade {
         this.apiLogger = apiLogger;
     }
 @Step("Get response after login")
-public Response login(String email, String password) {
-    DeviceDto device = DeviceDto.builder()
+    public Response login(String email, String password) {
+        DeviceDto device = DeviceDto.builder()
             .platform("WEB")
             .device_id("test-device")
             .device_model("Web")

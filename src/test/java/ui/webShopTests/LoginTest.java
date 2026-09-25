@@ -20,7 +20,7 @@ public class LoginTest extends UiBaseTest {
     }
 
     @Test
-    public void verifyInvalidLogin() throws InterruptedException {
+    public void verifyInvalidLogin()  {
 
         logger.info("Invalid login test started");
         loginPage.clickLoginButton();
