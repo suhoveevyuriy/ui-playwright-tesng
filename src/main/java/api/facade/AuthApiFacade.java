@@ -25,16 +25,16 @@ public class AuthApiFacade {
             .user_agent("Mozilla/5.0")
             .build();
 
-    LoginRequestDto requestBody = LoginRequestDto.builder()
-            .type("email")
-            .email(email)
-            .password(password)
+    LoginRequestDto request = LoginRequestDto.builder()
+            .type("EMAIL")
+            .email("suhoveev07@gmail.com")
+            .password("Test123@")
             .device(device)
             .build();
 
     return apiLogger.postWithBasicAuth(
             "/auth/login?on_device=true",
-            requestBody
+            request
     );
     }
 }
